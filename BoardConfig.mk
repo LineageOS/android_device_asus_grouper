@@ -45,6 +45,8 @@ BOARD_SEPOLICY_DIRS := \
 
 BOARD_SEPOLICY_UNION := \
         file_contexts \
+        genfs_contexts \
+        app.te \
         btmacreader.te \
         device.te \
         drmserver.te \
@@ -52,4 +54,5 @@ BOARD_SEPOLICY_UNION := \
         sensors_config.te \
         shell.te \
         surfaceflinger.te \
-        system.te
+        system.te \
+        zygote.te
