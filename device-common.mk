@@ -102,10 +102,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/asus/grouper/media_codecs.xml:system/etc/media_codecs.xml
 
-# Bluetooth config file
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
-
 # audio mixer paths
 PRODUCT_COPY_FILES += \
     device/asus/grouper/mixer_paths.xml:system/etc/mixer_paths.xml
