@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2011 The Android Open Source Project
+# Copyright 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -38,16 +38,19 @@
 # start jb-mr1.1-dev
 # 551245 = JDP82
 # 573038 = JDQ39
-# end jb-mr1.-dev
+# end jb-mr1.1-dev
+# start jb-mr2-dev
+# 683083 = JWR51
+# end jb-mr2-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=573038
+BUILD=683083
 DEVICE=grouper
 PRODUCT=nakasi
-VERSION=jdq39
-SRCPREFIX=signed-
+VERSION=jwr51
+#SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
-BOOTLOADER=4.18
+BOOTLOADER=4.23
 SLEEPDURATION=10
 UNLOCKBOOTLOADER=true
 ERASEALL=true
