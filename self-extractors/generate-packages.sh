@@ -46,6 +46,7 @@
 # 686185 = JWR53
 # 689345 = JWR58
 # 690834 = JWR59
+# 692263 = JWR60
 # end jb-mr2-dev
 BRANCH=jb-mr2-dev
 if test $BRANCH = jb-dev
@@ -65,8 +66,8 @@ then
 fi # jb-mr1.1-dev
 if test $BRANCH = jb-mr2-dev
 then
-  ZIP=nakasi-ota-690834
-  BUILD=jwr59
+  ZIP=nakasi-ota-692263
+  BUILD=jwr60
 fi # jb-mr2-dev
 ROOTDEVICE=grouper
 DEVICE=grouper
