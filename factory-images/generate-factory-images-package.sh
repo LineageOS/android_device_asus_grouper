@@ -44,13 +44,14 @@
 # 689345 = JWR58
 # 690834 = JWR59
 # 704243 = JWR66G
+# 711294 = JWR66N
 # end jb-mr2-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=704243
+BUILD=711294
 DEVICE=grouper
 PRODUCT=nakasi
-VERSION=jwr66g
+VERSION=jwr66n
 SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
 BOOTLOADER=4.23
