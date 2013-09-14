@@ -77,12 +77,12 @@ allow surfaceflinger init:unix_stream_socket { read write };
 allow surfaceflinger nfc:binder call;
 allow surfaceflinger sysfs:file write;
 
-#============= system ==============
-allow system adbd_socket:sock_file write;
-allow system init:unix_stream_socket { read write };
-allow system proc:file write;
-allow system security_file:lnk_file read;
-allow system unlabeled:file { read getattr open };
+#============= system_server ==============
+allow system_server adbd_socket:sock_file write;
+allow system_server init:unix_stream_socket { read write };
+allow system_server proc:file write;
+allow system_server security_file:lnk_file read;
+allow system_server unlabeled:file { read getattr open };
 
 #============= system_app ==============
 allow system_app unlabeled:file { read getattr open };
