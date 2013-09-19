@@ -77,3 +77,23 @@ endif
 NEED_WORKAROUND_CORTEX_A9_745320 := true
 
 BOARD_USES_GROUPER_MODULES := true
+
+BOARD_SEPOLICY_DIRS += \
+        device/asus/grouper/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+        file_contexts \
+        genfs_contexts \
+        app.te \
+        btmacreader.te \
+        device.te \
+        drmserver.te \
+        init_shell.te \
+        file.te \
+        rild.te \
+        sensors_config.te \
+        shell.te \
+        surfaceflinger.te \
+        system_app.te \
+        system_server.te \
+        zygote.te
