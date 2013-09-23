@@ -57,8 +57,14 @@ on post-fs-data
     chown bluetooth net_bt_stack /data/misc/bluetooth
 
     # sensors-config
-    mkdir /data/sensors 751 system system
-    mkdir /data/lightsensor 751 system system
+    mkdir /data/sensors 751
+    # /data/sensors was owned by system/system earlier.
+    # Force it to root/root if it already exists.
+    chown root root /data/sensors
+    mkdir /data/lightsensor 751
+    # /data/lightsensor was owned by system/system earlier.
+    # Force it to root/root if it already exists.
+    chown root root /data/lightsensor
     mkdir /data/calibration
     mkdir /data/amit
 
