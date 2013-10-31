@@ -97,5 +97,4 @@ BOARD_SEPOLICY_UNION += \
         shell.te \
         surfaceflinger.te \
         system_app.te \
-        system_server.te \
-        zygote.te
+        system_server.te
