@@ -74,7 +74,6 @@ PRODUCT_PACKAGES := \
     audio.usb.default \
     audio.r_submix.default \
     librs_jni \
-    setup_fs \
     l2ping \
     hcitool \
     bttest \
@@ -89,6 +88,11 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag \
     com.android.nfc_extras
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    e2fsck \
+    setup_fs
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
