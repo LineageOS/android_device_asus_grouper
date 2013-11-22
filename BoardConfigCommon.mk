@@ -78,6 +78,8 @@ NEED_WORKAROUND_CORTEX_A9_745320 := true
 
 BOARD_USES_GROUPER_MODULES := true
 
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
 BOARD_SEPOLICY_DIRS += \
         device/asus/grouper/sepolicy
 
