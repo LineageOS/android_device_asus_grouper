@@ -67,6 +67,12 @@ PRODUCT_COPY_FILES += \
     device/asus/grouper/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 PRODUCT_PACKAGES := \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+PRODUCT_PACKAGES += \
     lights.grouper \
     audio.primary.grouper \
     power.grouper \
