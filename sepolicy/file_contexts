@@ -8,6 +8,7 @@
 /dev/nvhost-ctrl                  u:object_r:nvhost_writable_device:s0
 /dev/nvhost-gr2d                  u:object_r:nvhost_writable_device:s0
 /dev/nvhost-gr3d                  u:object_r:nvhost_writable_device:s0
+/dev/nvmap                        u:object_r:nvhost_writable_device:s0
 /dev/ttyHS1                       u:object_r:gps_device:s0
 /dev/ttyHS2                       u:object_r:hci_attach_dev:s0
 
