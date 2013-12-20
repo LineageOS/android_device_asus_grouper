@@ -90,6 +90,8 @@ BOARD_SEPOLICY_UNION += \
         drmserver.te \
         init_shell.te \
         file.te \
+        gpsd.te \
+        keystore.te \
         mediaserver.te \
         rild.te \
         sensors_config.te \
