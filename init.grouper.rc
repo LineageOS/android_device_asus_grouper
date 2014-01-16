@@ -36,21 +36,26 @@ on post-fs-data
     chown dhcp dhcp /data/misc/dhcp
 
     mkdir /data/media 0770 media_rw media_rw
+    restorecon_recursive /data/media
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
 
     # sensors-config
     mkdir /data/sensors 751
+    restorecon_recursive /data/sensors
     # /data/sensors was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/sensors
     mkdir /data/lightsensor 751
+    restorecon_recursive /data/lightsensor
     # /data/lightsensor was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/lightsensor
     mkdir /data/calibration
+    restorecon_recursive /data/calibration
     mkdir /data/amit
+    restorecon_recursive /data/amit
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
