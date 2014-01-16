@@ -23,22 +23,6 @@ on early-boot
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    restorecon /sys/devices/system/cpu
-    restorecon /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/boost
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/boost_factor
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/max_boost
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/sustain_load
-    restorecon /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    restorecon /sys/devices/tegradc.0/smartdimmer/aggressiveness
-    restorecon /sys/devices/tegradc.0/smartdimmer/enable
 
 on fs
     setprop ro.crypto.umount_sd false
@@ -52,21 +36,26 @@ on post-fs-data
     chown dhcp dhcp /data/misc/dhcp
 
     mkdir /data/media 0770 media_rw media_rw
+    restorecon_recursive /data/media
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
 
     # sensors-config
     mkdir /data/sensors 751
+    restorecon_recursive /data/sensors
     # /data/sensors was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/sensors
     mkdir /data/lightsensor 751
+    restorecon_recursive /data/lightsensor
     # /data/lightsensor was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/lightsensor
     mkdir /data/calibration
+    restorecon_recursive /data/calibration
     mkdir /data/amit
+    restorecon_recursive /data/amit
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -306,7 +295,6 @@ on boot
 # Touch
     chown system system /dev/elan-iap
     chown system system /proc/ektf_dbg  
-    restorecon /sys/bus/i2c/drivers/elan-ktf3k/1-0010/update_fw
     start touch_fw_update
 
 service wpa_supplicant /system/bin/wpa_supplicant \
