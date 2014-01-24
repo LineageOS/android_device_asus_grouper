@@ -4,6 +4,7 @@
 /dev/knvmap                       u:object_r:knv_device:s0
 /dev/lightsensor                  u:object_r:sensors_device:s0
 /dev/mi1040                       u:object_r:camera_device:s0
+/dev/tegra_camera                 u:object_r:camera_device:s0
 /dev/nvhost.*                     u:object_r:nvhost_device:s0
 /dev/nvhost-ctrl                  u:object_r:gpu_device:s0
 /dev/nvhost-gr2d                  u:object_r:gpu_device:s0
