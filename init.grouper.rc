@@ -30,11 +30,6 @@ on fs
     restorecon /dev/block/platform/sdhci-tegra.3/by-name/PER
 
 on post-fs-data
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-
     mkdir /data/media 0770 media_rw media_rw
     restorecon_recursive /data/media
 
