@@ -94,6 +94,7 @@ BOARD_SEPOLICY_UNION += \
         file.te \
         gpsd.te \
         keystore.te \
+        lmkd.te \
         mediaserver.te \
         rild.te \
         sensors_config.te \
