@@ -403,10 +403,6 @@ service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
 on property:init.svc.tf_daemon=restarting
     mkdir /data/tf
 
-#Raydium touch setting
-service rm_ts_service    /system/bin/rm_ts_server
-    class main
-
 # create filesystems if necessary
 service setup_fs /system/bin/setup_fs \
         /dev/block/platform/sdhci-tegra.3/by-name/UDA \
