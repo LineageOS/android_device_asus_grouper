@@ -100,4 +100,5 @@ BOARD_SEPOLICY_UNION += \
         surfaceflinger.te \
         system_app.te \
         system_server.te \
-        ueventd.te
+        ueventd.te \
+        vold.te
