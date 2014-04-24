@@ -27,24 +27,35 @@ on early-boot
 on fs
     setprop ro.crypto.umount_sd false
     mount_all /fstab.grouper
+    restorecon /dev/block/platform/sdhci-tegra.3/by-name/PER
 
 on post-fs-data
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
     mkdir /data/media 0770 media_rw media_rw
+    restorecon_recursive /data/media
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
 
     # sensors-config
     mkdir /data/sensors 751
+    restorecon_recursive /data/sensors
     # /data/sensors was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/sensors
     mkdir /data/lightsensor 751
+    restorecon_recursive /data/lightsensor
     # /data/lightsensor was owned by system/system earlier.
     # Force it to root/root if it already exists.
     chown root root /data/lightsensor
     mkdir /data/calibration
+    restorecon_recursive /data/calibration
     mkdir /data/amit
+    restorecon_recursive /data/amit
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -402,6 +413,10 @@ service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
 # may restart due to /data/tf not existing yet
 on property:init.svc.tf_daemon=restarting
     mkdir /data/tf
+
+#Raydium touch setting
+service rm_ts_service    /system/bin/rm_ts_server
+    class main
 
 # create filesystems if necessary
 service setup_fs /system/bin/setup_fs \
