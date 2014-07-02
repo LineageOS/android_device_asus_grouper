@@ -661,7 +661,7 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
     }
 
     /* Reduce number of channels, if necessary */
-    if (popcount(out_get_channels(&stream->common)) >
+    if (audio_channel_count_from_out_mask(out_get_channels(&stream->common)) >
                  (int)out->pcm_config->channels) {
         unsigned int i;
 
@@ -1171,7 +1171,7 @@ static size_t adev_get_input_buffer_size(const struct audio_hw_device *dev,
     size = (pcm_config_in.period_size * config->sample_rate) / pcm_config_in.rate;
     size = ((size + 15) / 16) * 16;
 
-    return (size * popcount(config->channel_mask) *
+    return (size * audio_channel_count_from_in_mask(config->channel_mask) *
                 audio_bytes_per_sample(config->format));
 }
 
