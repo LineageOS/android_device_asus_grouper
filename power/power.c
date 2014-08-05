@@ -33,7 +33,7 @@
 #include <hardware/power.h>
 
 #define BOOST_PATH      "/sys/devices/system/cpu/cpufreq/interactive/boost"
-#define UEVENT_MSG_LEN 1024
+#define UEVENT_MSG_LEN 2048
 #define TOTAL_CPUS 4
 #define RETRY_TIME_CHANGING_FREQ 20
 #define SLEEP_USEC_BETWN_RETRY 200
