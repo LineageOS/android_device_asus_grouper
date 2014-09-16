@@ -22,4 +22,7 @@
 
     <!-- Show camera affordance on Keyguard -->
     <bool name="config_keyguardShowCameraAffordance">false</bool>
+
+    <!-- Override for recents activity theme. -->
+    <item type="style" name="config_recents_activity_theme">@style/RecentsTheme.NoWallpaper</item>
 </resources>
