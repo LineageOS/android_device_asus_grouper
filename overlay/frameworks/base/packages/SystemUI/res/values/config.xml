@@ -23,6 +23,9 @@
     <!-- Show camera affordance on Keyguard -->
     <bool name="config_keyguardShowCameraAffordance">false</bool>
 
-    <!-- Override for recents activity theme. -->
-    <item type="style" name="config_recents_activity_theme">@style/RecentsTheme.NoWallpaper</item>
+    <!-- Disable expensive shadows -->
+    <bool name="config_recents_fake_shadows">true</bool>
+
+    <!-- Use hardware layers in recents -->
+    <bool name="config_recents_use_hardware_layers">true</bool>
 </resources>
