@@ -384,8 +384,7 @@ service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emul
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport \
-        -b /system/media/audio/ui/Dock.ogg -e /system/media/audio/ui/Undock.ogg
+        -o /data/data/com.android.shell/files/bugreports/bugreport
     class main
     disabled
     oneshot
