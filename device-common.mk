@@ -119,11 +119,11 @@ PRODUCT_COPY_FILES += \
 
 # audio mixer paths
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/asus/grouper/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # audio policy configuration
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/audio_policy.conf:system/etc/audio_policy.conf
+    device/asus/grouper/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
