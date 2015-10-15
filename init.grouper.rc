@@ -236,31 +236,54 @@ on boot
     chmod 600 /sys/bus/iio/devices/iio:device1/trigger/current_trigger
 
 # Power management settings
-    write /sys/module/cpu_tegra3/parameters/no_lp 0
-    #write /sys/module/tegra3_emc/parameters/emc_enable 0
-    #write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 1000000
-    write /sys/devices/system/cpu/cpufreq/interactive/boost_factor 2
-    write /sys/devices/system/cpu/cpufreq/interactive/input_boost 1
-    write /sys/devices/system/cpu/cpufreq/interactive/sustain_load 80
-    write /sys/module/cpu_tegra3/parameters/auto_hotplug 1
-    #write /sys/module/cpuidle_t3/parameters/lp2_0_in_idle 0
-    write /sys/module/cpuidle/parameters/lp2_in_idle 0
+    chown system system /sys/devices/system/cpu/cpufreq/cpuload/enable
+    chmod 0660 /sys/devices/system/cpu/cpufreq/cpuload/enable
+    chown system system /sys/devices/system/cpu/cpuquiet/current_governor
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/current_governor
+    chown system system /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
+    chown system system /sys/devices/system/cpu/cpuquiet/balanced/core_lock_period
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/balanced/core_lock_period
+    chown system system /sys/devices/system/cpu/cpuquiet/balanced/core_lock_count
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/balanced/core_lock_count
+    chown system system /sys/devices/system/cpu/cpuquiet/balanced/core_lock_trigger
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/balanced/core_lock_trigger
+    chown system system /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp
+    chmod 0660 /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp
+    chown system system /sys/module/cpuidle/parameters/power_down_in_idle
+    chmod 0660 /sys/module/cpuidle/parameters/power_down_in_idle
+    chown system system /sys/module/cpuidle_t3/parameters/lp2_0_in_idle
+    chmod 0660 /sys/module/cpuidle_t3/parameters/lp2_0_in_idle
+    chown system system /sys/module/cpuidle_t3/parameters/lp2_n_in_idle
+    chmod 0660 /sys/module/cpuidle_t3/parameters/lp2_n_in_idle
 
 # Interactive governor settings
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost_factor
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost_factor
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
     chown system system /sys/devices/system/cpu/cpufreq/interactive/core_lock_count
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/core_lock_count
     chown system system /sys/devices/system/cpu/cpufreq/interactive/core_lock_period
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/core_lock_period
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
     chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/max_boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/max_boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/sustain_load
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/sustain_load
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
