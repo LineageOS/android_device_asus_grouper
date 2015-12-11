@@ -37,11 +37,11 @@
 #include <audio_utils/resampler.h>
 #include <audio_route/audio_route.h>
 
-#define PCM_CARD 1
+#define PCM_CARD 0
 #define PCM_DEVICE 0
 #define PCM_DEVICE_SCO 2
 
-#define MIXER_CARD 1
+#define MIXER_CARD 0
 
 #define OUT_PERIOD_SIZE 512
 #define OUT_SHORT_PERIOD_COUNT 2
