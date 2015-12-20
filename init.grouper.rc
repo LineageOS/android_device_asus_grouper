@@ -240,6 +240,7 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/cpuload/enable
     chown system system /sys/devices/system/cpu/cpuquiet/current_governor
     chmod 0660 /sys/devices/system/cpu/cpuquiet/current_governor
+    write /sys/devices/system/cpu/cpuquiet/current_governor balanced
     chown system system /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
     chmod 0660 /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
     chown system system /sys/devices/system/cpu/cpuquiet/balanced/core_lock_period
