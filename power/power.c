@@ -32,6 +32,7 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
+#define CPUQUIET_DISABLE_LP_CLUSTER "/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp"
 #define CPUQUIET_CORE_LOCKER "/sys/devices/system/cpu/cpuquiet/balanced/core_lock_trigger"
 #define CPUFREQ_BOOSTPULSE "/sys/devices/system/cpu/cpufreq/interactive/boostpulse" 
 #define UEVENT_MSG_LEN 2048
@@ -208,7 +209,7 @@ static void grouper_power_init( __attribute__((unused)) struct power_module *mod
                 "2");
     sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_trigger",
                 "1");
-    sysfs_write("/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp",
+    sysfs_write(CPUQUIET_DISABLE_LP_CLUSTER,
                 "0");
     sysfs_write("/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable",
                 "1");
@@ -221,15 +222,17 @@ static void grouper_power_init( __attribute__((unused)) struct power_module *mod
     uevent_init();
 }
 
-static void grouper_power_set_interactive(__attribute__((unused)) struct power_module *module,
-                                          __attribute__((unused)) int on)
+static void grouper_power_set_interactive(struct power_module *module __unused, int on)
 {
 	if (on) {
+		sysfs_write(CPUQUIET_CORE_LOCKER, "1");
+		sysfs_write(CPUQUIET_DISABLE_LP_CLUSTER, "1");
 		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "75");
 		sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_period", "3000000");
 		sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_count", "2");
-	}
-	else {
+	} else {
+		sysfs_write(CPUQUIET_CORE_LOCKER, "0");
+		sysfs_write(CPUQUIET_DISABLE_LP_CLUSTER, "0");
 		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "85");
 		sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_period", "200000");
 		sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_count", "0");
@@ -249,7 +252,7 @@ static void grouper_power_hint(__attribute__((unused)) struct power_module *modu
     case POWER_HINT_LOW_POWER:
         pthread_mutex_lock(&low_power_mode_lock);
         if (data) {
-            sysfs_write(CPUQUIET_CORE_LOCKER, 0);
+            sysfs_write(CPUQUIET_CORE_LOCKER, "0");
             low_power_mode = true;
             for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
                 sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
@@ -259,7 +262,7 @@ static void grouper_power_hint(__attribute__((unused)) struct power_module *modu
                 }
             }
         } else {
-            sysfs_write(CPUQUIET_CORE_LOCKER, 1);
+            sysfs_write(CPUQUIET_CORE_LOCKER, "1");
             low_power_mode = false;
             for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
                 ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
