@@ -133,6 +133,7 @@ WIFI_BAND := 802_11_BG
  $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 # inherit from the non-open-source side
+$(call inherit-product, vendor/asus/grouper/asus-vendor.mk)
 $(call inherit-product, vendor/broadcom/grouper/broadcom-vendor.mk)
 $(call inherit-product, vendor/elan/grouper/elan-vendor.mk)
 $(call inherit-product, vendor/invensense/grouper/invensense-vendor.mk)
