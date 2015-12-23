@@ -37,10 +37,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/ueventd.grouper.rc:root/ueventd.grouper.rc \
-    device/asus/grouper/init.grouper.usb.rc:root/init.grouper.usb.rc \
-    device/asus/grouper/gps.conf:system/etc/gps.conf \
-    device/asus/grouper/gps_daemon.sh:system/bin/gps_daemon.sh
+    device/asus/grouper/rootdir/ueventd.grouper.rc:root/ueventd.grouper.rc \
+    device/asus/grouper/rootdir/init.grouper.usb.rc:root/init.grouper.usb.rc \
+    device/asus/grouper/gps/gps.conf:system/etc/gps.conf \
+    device/asus/grouper/gps/gps_daemon.sh:system/bin/gps_daemon.sh
 
 ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
 PRODUCT_COPY_FILES += \
@@ -62,10 +62,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/asus/grouper/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
-    device/asus/grouper/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
-    device/asus/grouper/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+    device/asus/grouper/touchscreen/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
+    device/asus/grouper/touchscreen/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
+    device/asus/grouper/touchscreen/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
+    device/asus/grouper/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 PRODUCT_PACKAGES := \
     libwpa_client \
@@ -108,14 +108,14 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/media_profiles.xml:system/etc/media_profiles.xml
+    device/asus/grouper/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # media codec config xml file
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/asus/grouper/media_codecs.xml:system/etc/media_codecs.xml
+    device/asus/grouper/media/media_codecs.xml:system/etc/media_codecs.xml
 
 # audio mixer paths
 PRODUCT_COPY_FILES += \
