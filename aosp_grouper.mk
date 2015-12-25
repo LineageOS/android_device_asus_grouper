@@ -13,6 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-$(call inherit-product, device/asus/grouper/full_grouper.mk)
 
-PRODUCT_NAME := aosp_grouper
+# Inherit from grouper device
+$(call inherit-product, device/asus/grouper/device.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+PRODUCT_NAME   := aosp_grouper
+PRODUCT_DEVICE := grouper
+PRODUCT_BRAND  := Google
+PRODUCT_MODEL  := Nexus 7
+PRODUCT_MANUFACTURER := Asus
