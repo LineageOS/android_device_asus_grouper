@@ -5,7 +5,8 @@ rild.libargs=-e wwan0
 persist.tegra.nvmmlite = 1
 ro.audio.monitorOrientation=true
 
-#NFC
+# NFC
+ro.nfc.port=I2C
 debug.nfc.fw_download=false
 debug.nfc.se=false
 
