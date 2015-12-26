@@ -203,6 +203,8 @@ static void grouper_power_init( __attribute__((unused)) struct power_module *mod
                 "45 1000000:65 1100000:75");
     sysfs_write("/sys/devices/system/cpu/cpufreq/cpuload/enable",
                 "1");
+    sysfs_write("/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable",
+                "1");
     sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_period",
                 "3000000");
     sysfs_write("/sys/devices/system/cpu/cpuquiet/balanced/core_lock_count",
@@ -211,8 +213,6 @@ static void grouper_power_init( __attribute__((unused)) struct power_module *mod
                 "1");
     sysfs_write(CPUQUIET_DISABLE_LP_CLUSTER,
                 "0");
-    sysfs_write("/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable",
-                "1");
     sysfs_write("/sys/module/cpuidle/parameters/power_down_in_idle",
                 "0");
     sysfs_write("/sys/module/cpuidle_t3/parameters/lp2_0_in_idle",
