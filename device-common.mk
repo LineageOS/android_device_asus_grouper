@@ -59,8 +59,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/asus/grouper/touchscreen/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/asus/grouper/touchscreen/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
-    device/asus/grouper/touchscreen/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
     device/asus/grouper/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 PRODUCT_PACKAGES := \
