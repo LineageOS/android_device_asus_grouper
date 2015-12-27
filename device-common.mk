@@ -14,10 +14,8 @@
 # limitations under the License.
 #
 
-PRODUCT_AAPT_CONFIG := normal large
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi
 
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
@@ -27,11 +25,6 @@ PRODUCT_COPY_FILES += \
     device/asus/grouper/rootdir/init.grouper.usb.rc:root/init.grouper.usb.rc \
     device/asus/grouper/gps/gps.conf:system/etc/gps.conf \
     device/asus/grouper/gps/gps_daemon.sh:system/bin/gps_daemon.sh
-
-ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_WIFI_MODULE):system/lib/modules/bcm4329.ko
-endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -64,12 +57,7 @@ PRODUCT_PACKAGES += \
     power.grouper \
     audio.a2dp.default \
     audio.usb.default \
-    audio.r_submix.default \
-    librs_jni \
-    l2ping \
-    hcitool \
-    bttest \
-    com.android.future.usb.accessory
+    audio.r_submix.default
 
 PRODUCT_PACKAGES += \
     keystore.grouper
@@ -82,13 +70,9 @@ PRODUCT_PACKAGES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    e2fsck \
     setup_fs
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
-
-# we have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 # media config xml file
 PRODUCT_COPY_FILES += \

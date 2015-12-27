@@ -27,11 +27,9 @@
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/grouper/bluetooth
 
 TARGET_BOARD_PLATFORM := tegra3
-TARGET_TEGRA_VERSION := t30
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
@@ -62,31 +60,14 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := false
-
-BOARD_USES_GENERIC_INVENSENSE := false
-
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-
-USE_OPENGL_RENDERER := true
-
-ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
-# needed for source compilation of nvidia libraries
--include vendor/nvidia/proprietary_src/build/definitions.mk
--include vendor/nvidia/build/definitions.mk
-endif
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
 
-BOARD_USES_GROUPER_MODULES := true
-
 BOARD_KERNEL_CMDLINE := androidboot.hardware=$(TARGET_BOOTLOADER_BOARD_NAME)
 TARGET_KERNEL_CONFIG := grouper_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/grouper
-
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 BOARD_SEPOLICY_DIRS += device/asus/grouper/sepolicy

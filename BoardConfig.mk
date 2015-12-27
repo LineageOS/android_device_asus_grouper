@@ -12,25 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
-# The proprietary variant sets USE_CAMERA_STUB := false, this way
-# we use the camera stub when the vendor tree isn't present, and
-# the true camera library when the vendor tree is available.  Similarly,
-# we set USE_PROPRIETARY_AUDIO_EXTENSIONS to true in the proprietary variant as
-# well.
-USE_CAMERA_STUB := true
-USE_PROPRIETARY_AUDIO_EXTENSIONS := false
-
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper

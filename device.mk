@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_PROPERTY_OVERRIDES := \
-    ro.carrier=wifi-only
-
 PRODUCT_COPY_FILES := \
     device/asus/grouper/rootdir/fstab.grouper:root/fstab.grouper \
     device/asus/grouper/rootdir/init.grouper.rc:root/init.grouper.rc
