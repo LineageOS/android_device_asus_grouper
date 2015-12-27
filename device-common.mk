@@ -19,16 +19,6 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 # A list of dpis to select prebuilt apk, in precedence order.
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
 
-PRODUCT_PROPERTY_OVERRIDES := \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    tf.enable=y \
-    persist.sys.media.legacy-drm=true \
-    drm.service.enabled=true
-
-# libhwui flags
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.render_dirty_regions=false
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
