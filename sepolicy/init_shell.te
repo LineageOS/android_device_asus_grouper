@@ -1,2 +1,0 @@
-allow init sysfs_firmware_writable:file write;
-allow init sysfs_devices_tegradc:lnk_file { read };
