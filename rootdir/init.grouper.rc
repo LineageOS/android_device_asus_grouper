@@ -17,12 +17,6 @@ on fs
     mount_all /fstab.grouper
 
 on post-fs-data
-    # sensors-config
-    mkdir /data/sensors 751 root root
-    mkdir /data/lightsensor 751 root root
-    mkdir /data/calibration
-    mkdir /data/amit
-
     # GPS
     mkdir /data/gps 1770 gps system
     write /sys/class/gpio/export 162
@@ -387,7 +381,7 @@ service bugreport /system/bin/dumpstate -d -p -B \
     oneshot
     keycodes 115 114
 
-service sensors-config /system/bin/sensors-config
+service sensors-load-calibration /system/bin/sensors-load-calibration.sh
     class main
     user root
     oneshot

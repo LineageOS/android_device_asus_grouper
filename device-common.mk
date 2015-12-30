@@ -76,6 +76,10 @@ PRODUCT_PACKAGES += \
     lights.grouper \
     power.grouper
 
+# Sensors
+PRODUCT_COPY_FILES += \
+    device/asus/grouper/sensors/sensors-load-calibration.sh:system/bin/sensors-load-calibration.sh
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
