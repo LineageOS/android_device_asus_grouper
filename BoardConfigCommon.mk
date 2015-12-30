@@ -12,20 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
-# inherit from the proprietary version
-# needed for BP-flashing updater extensions
-
-# Default value, if not overridden else where.
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/grouper/bluetooth
-
 TARGET_BOARD_PLATFORM := tegra3
 
 TARGET_CPU_ABI := armeabi-v7a
@@ -34,8 +20,13 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
 
-TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_BOOTLOADER_BOARD_NAME := grouper
 
+# Avoid the generation of ldrcc instructions
+NEED_WORKAROUND_CORTEX_A9_745320 := true
+
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12582912
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 681574400
@@ -43,31 +34,29 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 464519168
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 6567231488
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-# Disable journaling on system.img to save space.
+# Disable journaling on system.img to save space
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 
-# Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE           := bcmdhd
-#WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-
-TARGET_BOOTLOADER_BOARD_NAME := grouper
-
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-
-# Avoid the generation of ldrcc instructions
-NEED_WORKAROUND_CORTEX_A9_745320 := true
-
+# Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=$(TARGET_BOOTLOADER_BOARD_NAME)
 TARGET_KERNEL_CONFIG := grouper_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/grouper
 
+# Wi-Fi
+BOARD_WLAN_DEVICE           := bcmdhd
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/grouper/bluetooth
+
+# Security
 BOARD_SEPOLICY_DIRS += device/asus/grouper/sepolicy
