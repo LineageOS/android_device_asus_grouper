@@ -50,7 +50,6 @@ PRODUCT_COPY_FILES += \
 # Input device configs
 PRODUCT_COPY_FILES += \
     device/asus/grouper/touchscreen/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/asus/grouper/touchscreen/touch_fw_update.sh:system/bin/touch_fw_update.sh \
     device/asus/grouper/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 # GPS
@@ -111,7 +110,6 @@ PRODUCT_COPY_FILES += \
 # Vendor blobs
 $(call inherit-product, vendor/asus/grouper/asus-vendor.mk)
 $(call inherit-product, vendor/broadcom/grouper/broadcom-vendor.mk)
-$(call inherit-product, vendor/elan/grouper/elan-vendor.mk)
 $(call inherit-product, vendor/invensense/grouper/invensense-vendor.mk)
 $(call inherit-product, vendor/nvidia/grouper/nvidia-vendor.mk)
 $(call inherit-product, vendor/nxp/grouper/nxp-vendor.mk)
