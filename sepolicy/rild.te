@@ -1,0 +1,4 @@
+type sysfs_proximity_sensor, fs_type, sysfs_type;
+
+# Allow read/write permissions to sar proximity sensor
+allow rild sysfs_proximity_sensor:file rw_file_perms;

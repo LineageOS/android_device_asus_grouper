@@ -30,6 +30,7 @@
 /sys/devices/platform/tegra-i2c.1/i2c-1/1-0010/update_fw     u:object_r:sysfs_firmware_writable:s0
 /sys/devices/platform/tegra-i2c.2/i2c-2/2-000e/iio:device1/compass_cali_data  u:object_r:sysfs_firmware_writable:s0
 /sys/devices/platform/tegra-i2c.2/i2c-2/2-001c/calibration   u:object_r:sysfs_firmware_writable:s0
+/sys/devices/platform/tegra-i2c.2/i2c-2/2-0028/sensor_onoff  u:object_r:sysfs_proximity_sensor:s0
 /sys/devices/system/cpu/cpuquiet/balanced(/.*)?              u:object_r:sysfs_devices_system_cpu:s0
 
 # Block devices
