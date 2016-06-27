@@ -137,8 +137,15 @@ on boot
     chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
     chmod 0660 /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
 
-    # Default readahead value
+    # Default mmc queue settings    
+    # Set read ahead
     write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    # Set IO scheduler
+    write /sys/block/mmcblk0/queue/scheduler cfq
+    # Forces the completion to run on the requesting cpu
+    write /sys/block/mmcblk0/queue/rq_affinity 2
+    # Disable entropy
+    write /sys/block/mmcblk0/queue/add_random 0
 
     # BB mapping symbolic name to the logging ttyACM port
     symlink /dev/ttyACM2 /dev/log_modem
