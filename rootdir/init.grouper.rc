@@ -147,9 +147,6 @@ on boot
     # Disable entropy
     write /sys/block/mmcblk0/queue/add_random 0
 
-    # BB mapping symbolic name to the logging ttyACM port
-    symlink /dev/ttyACM2 /dev/log_modem
-
     # Sensor
     # iio
     chown system system /dev/iio:device0
