@@ -12,15 +12,6 @@ ro.sf.lcd_density=213
 # Wi-Fi
 wifi.interface=wlan0
 
-# NFC
-ro.nfc.port=I2C
-debug.nfc.fw_download=false
-debug.nfc.se=false
-
 # Configure PRISM, but disable it by default
 persist.tegra.didim.video=5
 persist.tegra.didim.enable=0
-
-# DRM
-persist.sys.media.legacy-drm=true
-drm.service.enabled=true
