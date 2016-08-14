@@ -6,3 +6,6 @@ allow init sysfs_gps_writable:file write;
 
 # Allow setting PRISM permissions
 allow init sysfs_devices_tegradc:lnk_file { read };
+
+# Allow debugfs to mount
+allow init debugfs:dir mounton;

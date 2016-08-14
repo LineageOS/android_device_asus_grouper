@@ -1,4 +1,6 @@
-allow system_server { knv_device }:chr_file rw_file_perms;
+allow system_server { knv_device pmqos_device }:chr_file rw_file_perms;
+allow system_server sysfs_devices_tegradc:dir search;
+allow system_server sysfs_devices_nvavp:file { open write };
 
 # Access .gps.interface.pipe.to_gpsd.
 allow system_server gps_data_file:dir rw_dir_perms;
