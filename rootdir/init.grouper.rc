@@ -371,7 +371,7 @@ service bugreport /system/bin/dumpstate -d -p -B \
     oneshot
     keycodes 115 114
 
-service sensors-load-calibration /system/bin/sensors-load-calibration.sh
+service sensors-calib /system/bin/sensors-load-calibration.sh
     class main
     user root
     oneshot
