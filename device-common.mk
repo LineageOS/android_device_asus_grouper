@@ -17,7 +17,7 @@
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Dalvik VM config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
