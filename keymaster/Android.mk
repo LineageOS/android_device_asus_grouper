@@ -12,13 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_ARCH),arm)
+ifeq ($(BOARD_USES_SECURE_SERVICES),true)
 ifneq (,$(filter grouper tilapia, $(TARGET_DEVICE)))
-
-# This is a nasty hack. keystore.grouper is Open Source, but it
-# links against a non-Open library, so we can only build it
-# when that library is present.
-ifeq ($(BOARD_HAS_TF_CRYPTO_SST),true)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -43,6 +38,5 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
 endif
 endif

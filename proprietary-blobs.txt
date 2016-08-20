@@ -16,7 +16,6 @@
 
 /system/bin/glgps
 /system/bin/sensors-config
-/system/bin/tf_daemon
 /system/etc/firmware/bcm4330.hcd
 /system/etc/firmware/nvavp_os_00001000.bin
 /system/etc/firmware/nvavp_os_0ff00000.bin
@@ -84,7 +83,6 @@
 /system/lib/libnvwsi.so
 /system/lib/libsensors.lightsensor.so
 /system/lib/libstagefrighthw.so
-/system/lib/libtf_crypto_sst.so
 /system/vendor/firmware/libpn544_fw.so
 /system/vendor/lib/drm/libdrmwvmplugin.so
 /system/vendor/lib/libwvdrm_L1.so

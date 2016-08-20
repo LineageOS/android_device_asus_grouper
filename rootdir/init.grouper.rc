@@ -138,7 +138,7 @@ service gps-daemon /system/bin/gps_daemon.sh
 on property:sys.shutdown.requested=1recovery
     start recoveryd
 
-service tf_daemon /vendor/bin/tf_daemon -storageDir /data/tf -d
+service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
     class main
     user root
     group shell

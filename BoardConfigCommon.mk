@@ -60,4 +60,5 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/grouper/bluetooth
 
 # Security
+BOARD_USES_SECURE_SERVICES := true
 BOARD_SEPOLICY_DIRS += device/asus/grouper/sepolicy

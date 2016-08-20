@@ -96,6 +96,11 @@ PRODUCT_PACKAGES += \
     NfcNxp \
     Tag
 
+# Security
+PRODUCT_PACKAGES += \
+    libtf_crypto_sst \
+    tf_daemon
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs
