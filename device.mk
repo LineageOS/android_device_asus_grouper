@@ -19,7 +19,9 @@ $(call inherit-product, device/asus/grouper/device-common.mk)
 
 PRODUCT_COPY_FILES += \
     device/asus/grouper/rootdir/fstab.grouper:root/fstab.grouper \
-    device/asus/grouper/rootdir/init.grouper.rc:root/init.grouper.rc
+    device/asus/grouper/rootdir/init.grouper.rc:root/init.grouper.rc \
+    device/asus/grouper/rootdir/init.grouper.power.rc:root/init.grouper.power.rc \
+    device/asus/grouper/rootdir/init.grouper.sensors.rc:root/init.grouper.sensors.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
