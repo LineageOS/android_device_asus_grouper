@@ -211,7 +211,11 @@ void common_power_set_interactive(__attribute__ ((unused)) struct power_module *
     int dev_id;
     char path[80];
     const char* state = (0 == on)?"0":"1";
+    const char* lp_state = (on)?"1":"0";
     const char* gov = (on == 0)?"conservative":"interactive";
+
+    sysfs_write("/sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp", lp_state);
+    ALOGI("Setting low power cluster %s", lp_state);
 
     sysfs_write("/sys/devices/platform/host1x/nvavp/boost_sclk", state);
     ALOGI("Setting boost_sclk %s", state);
