@@ -6,7 +6,6 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on init
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
     write /sys/kernel/mm/ksm/pages_to_scan 100
