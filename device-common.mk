@@ -58,6 +58,9 @@ PRODUCT_COPY_FILES += \
     device/asus/grouper/gps/gps.xml:system/etc/gps.xml \
     device/asus/grouper/gps/gps_daemon.sh:system/bin/gps_daemon.sh
 
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwpa_client \
