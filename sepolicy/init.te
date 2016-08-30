@@ -4,6 +4,9 @@ allow init tmpfs:lnk_file create_file_perms;
 # Allow writing GPS GPIO direction and value
 allow init sysfs_gps_writable:file write;
 
+# Allow writing /sys/kernel/debug/scaling/use_throughput_hint
+allow init debugfs_pmqos:file w_file_perms;
+
 # Allow setting PRISM permissions
 allow init sysfs_devices_tegradc:lnk_file { read };
 

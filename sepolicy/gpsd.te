@@ -7,7 +7,7 @@ init_daemon_domain(glgps)
 allow glgps shell_exec:file r_file_perms;
 
 # for text relocs & execution
-allow glgps system_file:file { execute_no_trans execmod };
+allow glgps system_file:file { execute_no_trans };
 allow glgps gps_device:chr_file { getattr setattr };
 allow glgps gps_data_file:dir { search write add_name remove_name };
 allow glgps gps_data_file:file { create rw_file_perms };

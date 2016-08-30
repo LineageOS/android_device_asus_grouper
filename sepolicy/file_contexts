@@ -1,8 +1,8 @@
 # Devices
 /dev/knvmap                       u:object_r:knv_device:s0
 /dev/lightsensor                  u:object_r:sensors_device:s0
-/dev/mi1040                       u:object_r:camera_device:s0
-/dev/tegra_camera                 u:object_r:camera_device:s0
+/dev/mi1040                       u:object_r:video_device:s0
+/dev/tegra_camera                 u:object_r:video_device:s0
 /dev/nvhost.*                     u:object_r:nvhost_device:s0
 /dev/nvhost-ctrl                  u:object_r:gpu_device:s0
 /dev/nvhost-gr2d                  u:object_r:gpu_device:s0
@@ -33,6 +33,9 @@
 /sys/devices/platform/tegra-i2c.2/i2c-2/2-000e/iio:device1/compass_cali_data  u:object_r:sysfs_firmware_writable:s0
 /sys/devices/platform/tegra-i2c.2/i2c-2/2-001c/calibration   u:object_r:sysfs_firmware_writable:s0
 /sys/devices/system/cpu/cpuquiet/runnable(/.*)?              u:object_r:sysfs_devices_system_cpu:s0
+/sys/module/tegra_fuse/parameters/tegra_chip_id              u:object_r:sysfs_modules_tegrafuse:s0
+/sys/module/tegra_fuse/parameters/tegra_chip_rev             u:object_r:sysfs_modules_tegrafuse:s0
+/sys/kernel/debug/scaling/use_throughput_hint                u:object_r:debugfs_pmqos:s0
 
 # Block devices
 /dev/block/mmcblk0                             u:object_r:root_block_device:s0
