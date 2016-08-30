@@ -19,7 +19,6 @@
 /data/tf(/.*)?                    u:object_r:tee_data_file:s0
 
 # System and vendor files
-/system/bin/gps_daemon.sh                u:object_r:glgps_exec:s0
 /system/bin/sensors-load-calibration.sh  u:object_r:sensors_load_calibration_exec:s0
 /system/bin/setup_fs                     u:object_r:setupfs_exec:s0
 

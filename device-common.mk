@@ -55,10 +55,10 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_COPY_FILES += \
     device/asus/grouper/gps/gps.conf:system/etc/gps.conf \
-    device/asus/grouper/gps/gps.xml:system/etc/gps.xml \
-    device/asus/grouper/gps/gps_daemon.sh:system/bin/gps_daemon.sh
+    device/asus/grouper/gps/gps.xml:system/etc/gps.xml
 
 PRODUCT_PACKAGES += \
+    libgpsd-compat \
     libstlport
 
 # Wi-Fi
