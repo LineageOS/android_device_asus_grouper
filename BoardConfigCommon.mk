@@ -38,6 +38,9 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Disable journaling on system.img to save space
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 
+# Only pre-optimize the boot image
+WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=$(TARGET_BOOTLOADER_BOARD_NAME)
 TARGET_KERNEL_CONFIG := grouper_defconfig
