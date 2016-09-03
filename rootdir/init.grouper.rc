@@ -58,7 +58,7 @@ on boot
 
     # Default mmc queue settings    
     # Set read ahead
-    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/read_ahead_kb 256
     # Set IO scheduler
     write /sys/block/mmcblk0/queue/scheduler cfq
     # Forces the completion to run on the requesting cpu
