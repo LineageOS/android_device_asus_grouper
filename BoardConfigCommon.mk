@@ -41,6 +41,9 @@ BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 # Only pre-optimize the boot image
 WITH_DEXPREOPT_BOOT_IMG_ONLY := true
 
+# Configure jemalloc for low-memory
+MALLOC_SVELTE := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=$(TARGET_BOOTLOADER_BOARD_NAME)
 TARGET_KERNEL_CONFIG := grouper_defconfig
