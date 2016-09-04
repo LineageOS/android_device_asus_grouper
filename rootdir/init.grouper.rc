@@ -5,6 +5,9 @@ import init.grouper.usb.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/scheduler noop
+
 on init
     symlink /sdcard /storage/sdcard0
 
@@ -57,16 +60,6 @@ on boot
     chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
 
-    # Default mmc queue settings    
-    # Set read ahead
-    write /sys/block/mmcblk0/queue/read_ahead_kb 256
-    # Set IO scheduler
-    write /sys/block/mmcblk0/queue/scheduler cfq
-    # Forces the completion to run on the requesting cpu
-    write /sys/block/mmcblk0/queue/rq_affinity 2
-    # Disable entropy
-    write /sys/block/mmcblk0/queue/add_random 0
-
     # GPS
     mkdir /data/gps 1770 gps system
     write /sys/class/gpio/export 162
@@ -76,6 +69,16 @@ on boot
     chmod 0644 /sys/class/gpio/gpio162/value
     chown gps system /dev/ttyHS1
     chmod 0660 /dev/ttyHS1
+
+on property:sys.boot_completed=1
+    # IO - default mmc queue settings
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 256
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    # Forces the completion to run on the requesting cpu
+    write /sys/block/mmcblk0/queue/rq_affinity 2
+    # Disable entropy
+    write /sys/block/mmcblk0/queue/add_random 0
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
