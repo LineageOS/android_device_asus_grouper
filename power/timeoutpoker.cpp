@@ -112,7 +112,7 @@ void TimeoutPoker::requestPmQosTimed(const char* filename,
 {
     pushEvent(new PmQosOpenTimedEvent(
                 filename, val, timeout));
-    ALOGI("starting requestPmQosTimed, mNodeName %s, mQosValue %d, timeout %d milliseconds",
+    ALOGV("starting requestPmQosTimed, mNodeName %s, mQosValue %d, timeout %d milliseconds",
             filename, val, int(ns2ms(timeout)));
 }
 
