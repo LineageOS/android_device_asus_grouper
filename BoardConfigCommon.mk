@@ -72,6 +72,9 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/grouper/bluetooth
 
+# Dump State
+BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper
+
 # Security
 BOARD_USES_SECURE_SERVICES := true
 BOARD_SEPOLICY_DIRS += device/asus/grouper/sepolicy
