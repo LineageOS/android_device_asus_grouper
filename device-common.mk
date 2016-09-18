@@ -112,13 +112,16 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     mkfs.f2fs
 
-# Media profiles
+# Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     device/asus/grouper/media/media_profiles.xml:system/etc/media_profiles.xml \
     device/asus/grouper/media/media_codecs.xml:system/etc/media_codecs.xml
+
+PRODUCT_PACKAGES += \
+    libstagefrighthw
 
 # Vendor blobs
 $(call inherit-product, vendor/asus/grouper/asus-vendor.mk)
