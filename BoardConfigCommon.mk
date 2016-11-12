@@ -22,9 +22,6 @@ TARGET_CPU_VARIANT := cortex-a9
 
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 
-# Avoid the generation of ldrcc instructions
-NEED_WORKAROUND_CORTEX_A9_745320 := true
-
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 ifeq ($(HOST_OS),linux)
