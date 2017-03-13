@@ -12,3 +12,6 @@ allow init sysfs_devices_tegradc:lnk_file { read };
 
 # Allow debugfs to mount
 allow init debugfs:dir mounton;
+
+# Allow mounting /per
+allow init oemfs:dir mounton;

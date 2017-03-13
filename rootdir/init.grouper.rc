@@ -22,6 +22,9 @@ on early-boot
 on fs
     mount_all /fstab.grouper
 
+    mkdir /per 0700 root root
+    mount vfat /dev/block/platform/sdhci-tegra.3/by-name/PER /per ro context=u:object_r:oemfs:s0
+
 on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
