@@ -1,0 +1,10 @@
+[
+    {
+      "repository": "android_kernel_asus_grouper",
+      "target_path": "kernel/asus/grouper"
+    },
+    {
+      "repository": "android_external_stlport",
+      "target_path": "external/stlport"
+    }
+]
