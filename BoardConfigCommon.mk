@@ -34,6 +34,18 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 464519168
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 6567231488
 BOARD_FLASH_BLOCK_SIZE := 4096
 
+# TWRP Support - Optional
+ifeq ($(WITH_TWRP),true)
+PRODUCT_COPY_FILES += \
+    device/asus/grouper/twrp.fstab:recovery/root/etc/twrp.fstab
+RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_NO_USB_STORAGE := false
+TW_INCLUDE_L_CRYPTO := true
+endif
+
 # Disable journaling on system.img to save space
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 
