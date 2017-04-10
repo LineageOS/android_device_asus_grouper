@@ -41,6 +41,7 @@ PRODUCT_COPY_FILES += \
 RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 BOARD_HAS_NO_REAL_SDCARD := true
+TW_BRIGHTNESS_PATH := /sys/devices/platform/pwm-backlight/backlight/pwm-backlight/brightness
 RECOVERY_SDCARD_ON_DATA := true
 TW_NO_USB_STORAGE := false
 TW_INCLUDE_L_CRYPTO := true
