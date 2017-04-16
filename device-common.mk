@@ -100,6 +100,8 @@ PRODUCT_COPY_FILES += \
 # NFC
 PRODUCT_PACKAGES += \
     nfc.grouper \
+    Nfc \
+    libnfc_jni \
     libpn544_fw \
     NfcNxp \
     Tag
